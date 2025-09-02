@@ -286,7 +286,7 @@ export const InvoiceHistory = component$<{ invoices: Invoice[] }>(({ invoices })
                     })}</tbody>
                 </table>
                 <div class="invoice-summary">
-                    <div class="summary-row total"><span>Grand Total:</span> <span>${selectedInvoice.value.totalAmount.toFixed(2)}</span></div>
+                    <div class="summary-row total"><span>Grand Total:</span> <span>₹{selectedInvoice.value.totalAmount.toFixed(2)}</span></div>
                 </div>
             </div>
         </>) : (<>
