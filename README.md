@@ -44,6 +44,7 @@ git --version
 
 ```shell
 git clone https://github.com/ForCharm24MG/qwik-invoicing-app
+cd qwik-invoicing-app
 ```
 * Install the Packages
 ```shell
