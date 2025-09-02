@@ -1,10 +1,4 @@
-import {
-  component$,
-  useStore,
-  $,
-  useSignal,
-  useTask$,
-} from '@builder.io/qwik';
+import {component$,useStore,$,useSignal,useTask$,} from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
 import { routeLoader$, routeAction$, Form, z, zod$ } from '@builder.io/qwik-city';
 import db from '~/lib/db';
@@ -210,7 +204,7 @@ export const ProductManagement = component$<{ products: Product[]; addProductAct
             <thead><tr><th>Name</th><th>Price</th><th>Tax</th><th>Action</th></tr></thead>
             <tbody>{products.map(p => (<tr key={p.id}>
                 <td>{p.name}</td>
-                <td>${p.price.toFixed(2)}</td>
+                <td>₹{p.price.toFixed(2)}</td>
                 <td>{p.tax}%</td>
                 <td><button onClick$={() => onAddToInvoice(p)}>Add to Invoice</button></td>
             </tr>))}</tbody>
@@ -248,16 +242,16 @@ export const InvoiceCreation = component$<{ invoiceState: any; createInvoiceActi
                             if(found) found.quantity = parseInt((e.target as HTMLInputElement).value, 10);
                         }}/>
                     </td>
-                    <td>${item.price.toFixed(2)}</td><td>{item.tax}%</td>
-                    <td>${(itemTotal + itemTax).toFixed(2)}</td>
+                    <td>₹{item.price.toFixed(2)}</td><td>{item.tax}%</td>
+                    <td>₹{(itemTotal + itemTax).toFixed(2)}</td>
                     <td><button onClick$={() => invoiceState.items = invoiceState.items.filter((i: InvoiceItem) => i.id !== item.id)} class="danger">Remove</button></td>
                 </tr>)
             })}</tbody>
         </table>
 
         {invoiceState.items.length > 0 && <div class="invoice-summary">
-            <div class="summary-row"><span>Subtotal:</span> <span>${subtotal.toFixed(2)}</span></div>
-            <div class="summary-row"><span>Tax:</span> <span>${totalTax.toFixed(2)}</span></div>
+            <div class="summary-row"><span>Subtotal:</span> <span>₹{subtotal.toFixed(2)}</span></div>
+            <div class="summary-row"><span>Tax:</span> <span>₹{totalTax.toFixed(2)}</span></div>
             <div class="summary-row total"><span>Total:</span> <span>${(subtotal + totalTax).toFixed(2)}</span></div>
         </div>}
         
@@ -286,8 +280,8 @@ export const InvoiceHistory = component$<{ invoices: Invoice[] }>(({ invoices })
                         const itemTotal = item.price * item.quantity;
                         const itemTax = itemTotal * (item.tax / 100);
                         return (<tr key={item.name}>
-                            <td>{item.name}</td><td>{item.quantity}</td><td>${item.price.toFixed(2)}</td><td>{item.tax}%</td>
-                            <td>${(itemTotal + itemTax).toFixed(2)}</td>
+                            <td>{item.name}</td><td>{item.quantity}</td><td>₹{item.price.toFixed(2)}</td><td>{item.tax}%</td>
+                            <td>₹{(itemTotal + itemTax).toFixed(2)}</td>
                         </tr>)
                     })}</tbody>
                 </table>
@@ -302,7 +296,7 @@ export const InvoiceHistory = component$<{ invoices: Invoice[] }>(({ invoices })
                     <td>#{inv.id}</td>
                     <td>{inv.customerName}</td>
                     <td>{new Date(inv.createdAt).toLocaleDateString()}</td>
-                    <td>${inv.totalAmount.toFixed(2)}</td>
+                    <td>₹{inv.totalAmount.toFixed(2)}</td>
                     <td><button onClick$={() => selectedInvoice.value = inv}>View Details</button></td>
                 </tr>))}</tbody>
             </table>
