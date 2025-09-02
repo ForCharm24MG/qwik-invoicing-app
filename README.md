@@ -1,65 +1,71 @@
 # Qwik Invoicing Application
 # Introduction
-- [Qwik Docs](https://qwik.dev/)
-- [Discord](https://qwik.dev/chat)
-- [Qwik GitHub](https://github.com/QwikDev/qwik)
-- [@QwikDev](https://twitter.com/QwikDev)
-- [Vite](https://vitejs.dev/)
+This project is a basic invoicing system built on the Qwik.js framework. It creates product invoices based on customer information. Currently, it only saves the invoices to a local database.
+This project demonstrates how Qwik.js technology can be utilized in a basic invoicing system. While Qwik.js is not yet as popular as other frameworks, its key feature is resumability, which allows pages to load extremely quickly by avoiding traditional hydration. It might feel familiar to developers coming from Angular or React. It's another framework for building dynamic web applications, but it stands out by removing the traditional hydration process.
+This project serves not only as a demonstration of an invoicing system but also as a hands-on experience with Qwik.js.
 
----
+# Technologies Used in This Project
+* Qwik.js (Qwik & Qwik City)
+* SQLite (local, serverless database)
+* Node.js & npm (version 18+)
+  
 
-## Project Structure
-
-This project is using Qwik with [QwikCity](https://qwik.dev/qwikcity/overview/). QwikCity is just an extra set of tools on top of Qwik to make it easier to build a full site, including directory-based routing, layouts, and more.
-
-Inside your project, you'll see the following directory structure:
-
+# Project Structure
 ```
 ├── public/
-│   └── ...
-└── src/
-    ├── components/
-    │   └── ...
-    └── routes/
-        └── ...
+├── src/
+│   ├── components/   
+│   │
+│   ├── lib/
+│   │   └── db.ts             # Database
+│   ├── routes/
+│       └── index.tsx         # Main page route 
+│  
+├── package.json
+└── README.md
+
 ```
-
-- `src/routes`: Provides the directory-based routing, which can include a hierarchy of `layout.tsx` layout files, and an `index.tsx` file as the page. Additionally, `index.ts` files are endpoints. Please see the [routing docs](https://qwik.dev/qwikcity/routing/overview/) for more info.
-
-- `src/components`: Recommended directory for components.
-
-- `public`: Any static assets, like images, can be placed in the public directory. Please see the [Vite public directory](https://vitejs.dev/guide/assets.html#the-public-directory) for more info.
-
-## Add Integrations and deployment
-
-Use the `npm run qwik add` command to add additional integrations. Some examples of integrations includes: Cloudflare, Netlify or Express Server, and the [Static Site Generator (SSG)](https://qwik.dev/qwikcity/guides/static-site-generation/).
+# Installation & Usage
+## Prerequisites
+Verify that you have the following: 
 
 ```shell
-npm run qwik add # or `yarn qwik add`
+node -v 
+```
+```shell
+npm -v
+```
+```shell
+git --version
 ```
 
-## Development
-
-Development mode uses [Vite's development server](https://vitejs.dev/). The `dev` command will server-side render (SSR) the output during development.
+## Installation
+* Clone this repository to your system.
 
 ```shell
-npm start # or `yarn start`
+git clone https://github.com/ForCharm24MG/qwik-invoicing-app
 ```
-
-> Note: during dev mode, Vite may request a significant number of `.js` files. This does not represent a Qwik production build.
-
-## Preview
-
-The preview command will create a production build of the client modules, a production build of `src/entry.preview.tsx`, and run a local server. The preview server is only for convenience to preview a production build locally and should not be used as a production server.
-
+* Install the Packages
 ```shell
-npm run preview # or `yarn preview`
+npm install 
 ```
-
-## Production
-
-The production build will generate client and server modules by running both client and server build commands. The build command will use Typescript to run a type check on the source code.
-
+* Run the Application
 ```shell
-npm run build # or `yarn build`
+npm start  
 ```
+## Usage 
+Open the url on to your browser.
+```shell 
+http://localhost:5173
+```
+```shell 
+http://127.0.0.1:5173
+```
+# Preview of our Application
+* ## Customer Page
+  <img width="1017" height="796" alt="image" src="https://github.com/user-attachments/assets/300422b2-b03f-45e4-9c98-1357c8080618" />
+* ## Products Page
+  <img width="1026" height="822" alt="image" src="https://github.com/user-attachments/assets/379090ca-0eec-4012-be79-f12a83f75c48" />
+* ## Invoice Page
+  <img width="1017" height="620" alt="image" src="https://github.com/user-attachments/assets/6b72d3b7-c4fa-4606-80d8-c24892294b2a" />
+
