@@ -201,8 +201,8 @@ export const ProductManagement = component$<{ products: Product[]; addProductAct
         <Form action={addProductAction} class="form-group">
             <label>Product Name:</label> <input name="name" required />
             <label>Description:</label> <input name="description" />
-            <label>Price ($):</label> <input name="price" type="number" step="0.01" required />
-            <label>Tax Rate (%):</label> <input name="tax" type="number" step="0.1" required />
+            <label>Price (₹):</label> <input name="price" type="number" step="0.01" required />
+            <label>GST Rate (%):</label> <input name="tax" type="number" step="0.1" required />
             <button type="submit">Add Product</button>
         </Form>
         <h3>Product List</h3>
